@@ -1,0 +1,14 @@
+node_modules/
+client/node_modules/
+.env
+.env.local
+.env.production
+client/.env
+client/.env.local
+client/.env.production
+.DS_Store
+*.log
+client/build/
+dist/
+.vercel
+.netlify
