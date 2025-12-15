@@ -2,10 +2,10 @@ const mysql = require('mysql2');
 require('dotenv').config();
 
 const db = mysql.createConnection({
-  host: process.env.DB_HOST || 'localhost',
+  host: process.env.DB_HOST || 'mysql.railway.internal',
   user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'campus_events'
+  password: process.env.DB_PASSWORD || 'ozTTHiQQebYJzjwfyKhuMjexxMQxqfRM',
+  database: process.env.DB_NAME || 'railway'
 });
 
 db.connect(async (err) => {
