@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3306;
 
 // Middleware
 // CORS configuration for production
@@ -20,7 +20,7 @@ app.use(cors({
   origin: function (origin, callback) {
     // Allow requests with no origin (mobile apps, Postman, etc.)
     if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV === 'development') {
+    if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV === 'production') {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
@@ -32,10 +32,10 @@ app.use(express.json());
 
 // MySQL Connection
 const db = mysql.createConnection({
-  host: process.env.DB_HOST || 'localhost',
+  host: process.env.DB_HOST || 'mysql.railway.internal',
   user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'campus_events'
+  password: process.env.DB_PASSWORD || 'ozTTHiQQebYJzjwfyKhuMjexxMQxqfRM',
+  database: process.env.DB_NAME || 'railway'
 });
 
 db.connect(async (err) => {
