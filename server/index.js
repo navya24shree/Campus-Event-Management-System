@@ -3,7 +3,7 @@ const cors = require('cors');
 const mysql = require('mysql2');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const FRONTEND_URL=https://campus-event-management-system-six.vercel.app;
+
 require('dotenv').config();
 
 const app = express();
