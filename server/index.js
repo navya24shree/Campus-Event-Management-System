@@ -3,10 +3,11 @@ const cors = require('cors');
 const mysql = require('mysql2');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const FRONTEND_URL=https://campus-event-management-system-six.vercel.app;
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 3306;
+const PORT = process.env.PORT || 8080;
 
 // Middleware
 // CORS configuration for production
@@ -20,10 +21,10 @@ app.use(cors({
   origin: function (origin, callback) {
     // Allow requests with no origin (mobile apps, Postman, etc.)
     if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV === 'production') {
+    if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      callback(new Error("Not allowed by CORS"));
     }
   },
   credentials: true
@@ -34,7 +35,7 @@ app.use(express.json());
 const db = mysql.createConnection({
   host: process.env.DB_HOST || 'mysql.railway.internal',
   user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || 'ozTTHiQQebYJzjwfyKhuMjexxMQxqfRM',
+  password: process.env.DB_PASSWORD ,
   database: process.env.DB_NAME || 'railway'
 });
 
