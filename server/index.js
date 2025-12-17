@@ -10,6 +10,10 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 // Middleware
+app.get("/", (req, res) => {
+  res.status(200).send("Campus Event Management Backend is running 🚀");
+});
+
 // CORS configuration for production
 const allowedOrigins = [
   'http://localhost:3000',
@@ -456,7 +460,7 @@ app.get('/api/feedback/event/:eventId', authenticateToken, async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
+app.listen(PORT,  "0.0.0.0" => {
   console.log(`Server running on port ${PORT}`);
 });
 
