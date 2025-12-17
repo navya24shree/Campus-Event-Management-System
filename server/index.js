@@ -460,8 +460,10 @@ app.get('/api/feedback/event/:eventId', authenticateToken, async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch feedback' });
   }
 });
-
-app.listen(PORT,'0.0.0.0',() => {
+console.log('About to start HTTP server...');
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+
 
